@@ -1,0 +1,169 @@
+﻿html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+/*==========================================================*/
+
+:root {
+    --header-height: 3.5rem;
+    /*========== Colors ==========*/
+    /*Color mode HSL(hue, saturation, lightness)*/
+    --first-color: #ffac38;
+    --title-color: hsl(207, 4%, 16%);
+    --text-color: hsl(207, 4%, 28%);
+    --text-color-light: hsl(207, 4%, 56%);
+    --white-color: hsl(0, 0%, 95%);
+    --body-color: hsl(207, 4%, 99%);
+    --container-color: hsl(207, 4%, 95%);
+    --main-color: #fe5b3d;
+    --second-color: #ffac38;
+    --third-color: #ffffff;
+    /*    --text-color: #444;*/
+    --gradient: linear-gradient(#fe5b3d, #ffac38);
+    /* Change the first number */
+    /* Blue: 207 - Purple: 250 - Pink: 356 - Teal: 174 */
+    --gradient-color: linear-gradient( 180deg, hsla(207, 48%, 72%, 0), hsla(207, 65%, 65%, 1) );
+    /*========== Font and typography ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --body-font: "Roboto", sans-serif;
+    --title-font: "Lora", serif;
+    --biggest-font-size: 1.5rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: 0.938rem;
+    --small-font-size: 0.813rem;
+    --smaller-font-size: 0.75rem;
+    --tiny-font-size: 0.625rem;
+    /*========== Font weight ==========*/
+    --font-medium: 500;
+    --font-semi-bold: 600;
+    /*========== z index ==========*/
+    --z-normal: 1;
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+
+/*.btn-orange {
+    background-color: #fd7e14 !important;
+    color: white;
+    border: none;
+}*/
+
+.btn-warning:hover {
+    background-color: hsl(45 22% 93%) !important;
+    color: orange !important; 
+    border: none;
+}
+
+.btn-link{
+    color: black !important;
+}
+
+.btn-link:hover {
+    color: orange !important;
+}
+
+.text-orange {
+    color: #fd7e14;
+}
+
+
+
+/*=======================================================*/
+body {
+    margin-bottom: 60px;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+    color: var(--bs-secondary-color);
+    text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+    text-align: start;
+}
+
+.hero-section {
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background-image: url('/img/LeburuImg7.jpeg'); /* Change this to your actual path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+    /* Dark overlay for better text readability */
+    .hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+/* Content stays above overlay */
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.nav-link.active {
+    color: #f0ad4e !important; /* Highlight color (orange/gold) */
+    font-weight: bold;
+    border-bottom: 2px solid #f0ad4e;
+}
+
+#about {
+    scroll-margin-top: 100px; /* For scroll-to-section spacing */
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    display: inline-block;
+/*    background-color: #25d366;*/
+/*    border-radius: 50%;*/
+/*    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);*/
+    padding: 12px;
+    transition: transform 0.2s ease-in-out;
+}
+
+    .whatsapp-float img {
+        width: 65px;
+        height: 65px;
+    }
+
+    .whatsapp-float:hover {
+        transform: scale(1.1);
+    }
+
+textarea.form-control {
+    resize: none;
+}

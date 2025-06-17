@@ -1,0 +1,162 @@
+﻿@model Poultry_management_System.Models.CaptureFormViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<section class="py-5">
+    <div class="container">
+        <h4 class="mb-5 offset-2">Daily Capture</h4>
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+        }
+        <form asp-action="Create" method="post" id="dailyCaptureForm">
+            <div class="row g-4 justify-content-center">
+                <!-- Column 1 -->
+                <div class="col-md-4">
+                    <div class="mb-3 d-flex align-items-center">
+                        <label asp-for="SoldTrays" class="form-label me-2" style="min-width: 150px;"></label>
+                        <input asp-for="SoldTrays" class="form-control clear-on-focus" id="soldTrays" style="max-width: 200px;" />
+                        <span asp-validation-for="SoldTrays" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 d-flex align-items-center">
+                        <label asp-for="UnsoldTrays" class="form-label me-2" style="min-width: 150px;"></label>
+                        <input asp-for="UnsoldTrays" class="form-control clear-on-focus" id="unsoldTrays" style="max-width: 200px;" />
+                        <span asp-validation-for="UnsoldTrays" class="text-danger"></span>
+                    </div>                    
+                    <div class="mb-3 d-flex align-items-center"> 
+                         <label asp-for="TotalTrays" class="form-label me-2" style="min-width: 150px;"></label>
+                        <input asp-for="TotalTrays" class="form-control" value="@Model.TotalTrays" readonly id="totalTrays" style="max-width: 200px;" />
+                        <span asp-validation-for="TotalTrays" class="text-danger"></span> 
+                     </div>
+                    <div class="mb-3 d-flex align-items-center">
+                        <label asp-for="UnsoldEggs" class="form-label me-2" style="min-width: 150px;"></label>
+                        <input asp-for="UnsoldEggs" class="form-control clear-on-focus" style="max-width: 200px;" />
+                        <span asp-validation-for="UnsoldEggs" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 d-flex align-items-center">
+                        <label asp-for="LeftOverEggs" class="form-label me-2" style="min-width: 150px;"></label>
+                        <input asp-for="LeftOverEggs" class="form-control clear-on-focus" style="max-width: 200px;" />
+                        <span asp-validation-for="LeftOverEggs" class="text-danger"></span>
+                    </div>                 
+                    <div class="mb-3 d-flex align-items-center">
+                        <label asp-for="DamagedEggs" class="form-label me-2" style="min-width: 150px;"></label>
+                        <input asp-for="DamagedEggs" class="form-control clear-on-focus" style="max-width: 200px;" />
+                        <span asp-validation-for="DamagedEggs" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 d-flex align-items-center">
+                        <label asp-for="TrayPrice" class="form-label me-2" style="min-width: 150px;"></label>
+                        <span class="input-group-text">R</span>
+                        <input asp-for="TrayPrice" class="form-control clear-on-focus" style="max-width: 200px;" />
+                        <span asp-validation-for="TrayPrice" class="text-danger"></span>
+                    </div>                                                     
+                </div>
+
+                <!-- Column 2 -->               
+                <div class="col-md-4">
+                    <div class="mb-3 d-flex align-items-center">
+                        <label asp-for="TwelvesPrice" class="form-label me-2" style="min-width: 150px;"></label>
+                        <span class="input-group-text">R</span>
+                        <input asp-for="TwelvesPrice" class="form-control clear-on-focus" style="max-width: 200px;" />
+                        <span asp-validation-for="TwelvesPrice" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3 d-flex align-items-center">
+                        <label asp-for="SixesPrice" class="form-label me-2" style="min-width: 150px;"></label>
+                        <span class="input-group-text">R</span>
+                        <input asp-for="SixesPrice" class="form-control clear-on-focus" style="max-width: 200px;" />
+                        <span asp-validation-for="SixesPrice" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3 d-flex align-items-center">
+                        <label asp-for="SoldTwelves" class="form-label me-2" style="min-width: 150px;"></label>
+                        <input asp-for="SoldTwelves" class="form-control clear-on-focus" style="max-width: 200px;" />
+                        <span asp-validation-for="SoldTwelves" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 d-flex align-items-center">
+                        <label asp-for="SoldSixes" class="form-label me-2" style="min-width: 150px;"></label>
+                        <input asp-for="SoldSixes" class="form-control clear-on-focus" style="max-width: 200px;" />
+                        <span asp-validation-for="SoldSixes" class="text-danger"></span>
+                    </div>
+                                     
+                    <div class="mb-3 d-flex align-items-center">
+                        <label asp-for="Amount" class="form-label me-2" style="min-width: 150px;"></label>
+                        <span class="input-group-text">R</span>
+                        <input asp-for="Amount" class="form-control clear-on-focus" style="max-width: 200px;" />
+                        <span asp-validation-for="Amount" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 d-flex align-items-center">
+                        <label asp-for="TotalAmount" class="form-label me-2" style="min-width: 150px;"></label>
+                        <span class="input-group-text">R</span>
+                        <input asp-for="TotalAmount" class="form-control clear-on-focus" style="max-width: 200px;" />
+                        <span asp-validation-for="TotalAmount" class="text-danger"></span>
+                    </div> 
+                    <div class="mb-3 d-flex align-items-center">
+                        <label asp-for="DateCaptured" class="form-label me-2" style="min-width: 150px;"></label>
+                        <input asp-for="DateCaptured" class="form-control clear-on-focus" style="max-width: 200px;" />
+                        <span asp-validation-for="DateCaptured" class="text-danger"></span>
+                    </div>
+
+                </div>                        
+            </div>
+
+            <div class="mt-4 text-end">
+                <button type="submit" class="btn btn-warning px-4">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="mx-auto text-center">
+        <a asp-action="Index" class="btn-link">Back to List</a>
+    </div>
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");       
+    }
+    <script>
+        function calculateTotals() {
+            const sTrays = parseFloat(document.getElementById('soldTrays').value) || 0;
+            const usTrays = parseFloat(document.getElementById('unsoldTrays').value) || 0;
+            document.getElementById('totalTrays').value = sTrays + usTrays;           
+        }
+
+        // Attach events to input fields when DOM is ready
+        document.addEventListener('DOMContentLoaded', function () {
+            const soldTray = document.getElementById('soldTrays');
+            const unsoldTray = document.getElementById('unsoldTrays');
+            document.getElementById('totalTrays').value = soldTray + unsoldTray;
+           
+
+            [soldTray, unsoldTray].forEach(input => {
+                if (input) {
+                    input.addEventListener('input', calculateTotals);
+                }
+            });
+            // Initial calculation in case there are pre-filled values
+            calculateTotals();
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {            
+            const inputsToClear = document.querySelectorAll('#dailyCaptureForm .clear-on-focus');
+
+            inputsToClear.forEach(function (input) {                
+                input.setAttribute('data-initial-value', input.value);
+
+                input.addEventListener('focus', function () {
+                    if (this.value === this.getAttribute('data-initial-value')) {
+                        this.value = '';
+                    }
+                });
+            
+                input.addEventListener('blur', function () {
+                    if (this.value.trim() === '') {
+                        this.value = this.getAttribute('data-initial-value');
+                    }
+                });
+            });
+        });
+    </script>
+}
+

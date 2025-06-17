@@ -1,0 +1,198 @@
+﻿@model Poultry_management_System.Models.ExpensesViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<section class="py-5">
+    <div class="container">
+        <h4 class="mb-5 offset-2">Daily Expense</h4>
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+        }
+        <form asp-action="Create" method="post" id="dailyCaptureForm">
+            <div class="row g-4 justify-content-center">
+                <!-- Column 1 -->
+                <div class="col-md-4">
+                    <div class="mb-3 d-flex align-items-center">
+                        <label asp-for="StarterFeed" class="form-label me-2" style="min-width: 150px;"></label>
+                        <input asp-for="StarterFeed" class="form-control clear-on-focus" id="SFeed" style="max-width: 200px;" />
+                        <span asp-validation-for="StarterFeed" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3 d-flex align-items-center">
+                        <label asp-for="GrowerFeed" class="form-label me-2" style="min-width: 150px;"></label>
+                        <input asp-for="GrowerFeed" class="form-control clear-on-focus" id="GFeed" style="max-width: 200px;" />
+                        <span asp-validation-for="GrowerFeed" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="mb-3 d-flex align-items-center">
+                        <label asp-for="LayerFeed" class="form-label me-2" style="min-width: 150px;"></label>
+                        <input asp-for="LayerFeed" class="form-control clear-on-focus" id="LFeed" style="max-width: 200px;" />
+                        <span asp-validation-for="LayerFeed" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="mb-3 d-flex align-items-center"> 
+                        <label asp-for="TotalFeeds" class="form-label me-2" style="min-width: 150px;"></label>
+                        <input asp-for="TotalFeeds" value="@Model.TotalFeeds" class="form-control" id="TotalFeeds" readonly style="max-width: 200px;" />
+                         <span asp-validation-for="TotalFeeds" class="text-danger"></span> 
+                     </div>
+
+                    <div class="mb-3 d-flex align-items-center">
+                        <label asp-for="TotalChickens" class="form-label me-2" style="min-width: 150px;"></label>
+                        <input asp-for="TotalChickens" class="form-control clear-on-focus" style="max-width: 200px;" />
+                        <span asp-validation-for="TotalChickens" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="mb-3 d-flex align-items-center">
+                        <label asp-for="TotalChicks" class="form-label me-2" style="min-width: 150px;"></label>
+                        <input asp-for="TotalChicks" class="form-control clear-on-focus" style="max-width: 200px;" />
+                        <span asp-validation-for="TotalChicks" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3 d-flex align-items-center">
+                        <label asp-for="StarterDied" class="form-label me-2" style="min-width: 150px;"></label>
+                        <input asp-for="StarterDied" class="form-control clear-on-focus" id="starterDied" style="max-width: 200px;" />
+                        <span asp-validation-for="StarterDied" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="mb-3 d-flex align-items-center">
+                        <label asp-for="LayersDied" class="form-label me-2" style="min-width: 150px;"></label>
+                        <input asp-for="LayersDied" class="form-control clear-on-focus" id="layersDied" style="max-width: 200px;" />
+                        <span asp-validation-for="LayersDied" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="mb-3 d-flex align-items-center">
+                        <label asp-for="ChickensDied" class="form-label me-2" style="min-width: 150px;"></label>
+                        <input asp-for="ChickensDied" value="@Model.ChickensDied" class="form-control" id="totalDied" readonly style="max-width: 200px;" />
+                        <span asp-validation-for="ChickensDied" class="text-danger"></span>
+                    </div>
+                                      
+               
+
+                </div>
+
+                <!-- Column 2 -->
+                <div class="col-md-4">
+                    
+                    <div class="mb-3 d-flex align-items-center">
+                        <label asp-for="House1Electricity" class="form-label me-2" style="min-width: 150px;"></label>
+                        <input asp-for="House1Electricity" class="form-control clear-on-focus" id="electricity1" style="max-width: 200px;" />
+                        <span asp-validation-for="House1Electricity" class="text-danger"></span>
+                    </div> 
+                    <div class="mb-3 d-flex align-items-center">
+                        <label asp-for="House2Electricity" class="form-label me-2" style="min-width: 150px;"></label>
+                        <input asp-for="House2Electricity" class="form-control clear-on-focus" id="electricity2" style="max-width: 200px;" />
+                        <span asp-validation-for="House2Electricity" class="text-danger"></span>
+                    </div> 
+                    
+                    <div class="mb-3 d-flex align-items-center">
+                        <label asp-for="TotalUnits" class="form-label me-2" style="min-width: 150px;"></label>
+                        <input asp-for="TotalUnits" class="form-control" value="@Model.TotalUnits" id="totalUnits" readonly style="max-width: 200px;" />
+                        <span asp-validation-for="TotalUnits" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3 d-flex align-items-center">
+                        <label asp-for="WaterCost" class="form-label me-2" style="min-width: 150px;"></label>
+                         <span class="input-group-text">R</span>
+                        <input asp-for="WaterCost" class="form-control clear-on-focus" style="max-width: 200px;" />
+                        <span asp-validation-for="WaterCost" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 d-flex align-items-center">
+                        <label asp-for="TownTransport" class="form-label me-2" style="min-width: 150px;"></label>
+                         <span class="input-group-text">R</span>
+                        <input asp-for="TownTransport" class="form-control clear-on-focus" style="max-width: 200px;" />
+                        <span asp-validation-for="TownTransport" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 d-flex align-items-center">
+                        <label asp-for="TownLunch" class="form-label me-2" style="min-width: 150px;"></label>
+                        <span class="input-group-text">R</span>
+                        <input asp-for="TownLunch" class="form-control clear-on-focus" style="max-width: 200px;" />
+                        <span asp-validation-for="TownLunch" class="text-danger"></span>
+                    </div>                  
+                    <div class="mb-3 d-flex align-items-center">
+                        <label asp-for="DateCaptured" class="form-label me-2" style="min-width: 150px;"></label>
+                        <input asp-for="DateCaptured" class="form-control clear-on-focus" style="max-width: 200px;" />
+                        <span asp-validation-for="DateCaptured" class="text-danger"></span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="mt-4 text-end">
+                <button type="submit" class="btn btn-warning px-4">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="mx-auto text-center">
+        <a asp-action="Index" class="btn-link">Back to List</a>
+    </div>
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+
+         function calculateTotals() {
+            const elec1 = parseFloat(document.getElementById('electricity1').value) || 0;
+            const elec2 = parseFloat(document.getElementById('electricity2').value) || 0;
+            document.getElementById('totalUnits').value = (elec1 + elec2).toFixed(2);
+
+            const died1 = parseInt(document.getElementById('starterDied').value) || 0;
+            const died2 = parseInt(document.getElementById('layersDied').value) || 0;
+            document.getElementById('totalDied').value = died1 + died2;
+
+            const starterFeed = parseFloat(document.getElementById('SFeed').value) || 0;
+            const growerFeed = parseFloat(document.getElementById('GFeed').value) || 0;
+            const layerFeed = parseFloat(document.getElementById('LFeed').value) || 0;
+            document.getElementById('TotalFeeds').value = (starterFeed + growerFeed + layerFeed).toFixed(2);
+
+        }
+
+        // Attach events to input fields when DOM is ready
+        document.addEventListener('DOMContentLoaded', function () {
+            const electricity1 = document.getElementById('electricity1');
+            const electricity2 = document.getElementById('electricity2');
+            const starterDied = document.getElementById('starterDied');
+            const layersDied = document.getElementById('layersDied');
+            const starterFeed = document.getElementById('SFeed');
+            const growerFeed = document.getElementById('GFeed');
+            const layersFeed = document.getElementById('LFeed');
+
+            [electricity1, electricity2, starterDied, layersDied, starterFeed, growerFeed, layersFeed].forEach(input => {
+                if (input) {
+                    input.addEventListener('input', calculateTotals);
+                }
+            });
+            // Initial calculation in case there are pre-filled values
+            calculateTotals();
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const inputsToClear = document.querySelectorAll('#dailyCaptureForm .clear-on-focus');
+
+            inputsToClear.forEach(function (input) {
+                input.setAttribute('data-initial-value', input.value);
+
+                input.addEventListener('focus', function () {
+                    if (this.value === this.getAttribute('data-initial-value')) {
+                        this.value = '';
+                    }
+                });
+
+                input.addEventListener('blur', function () {
+                    if (this.value.trim() === '') {
+                        this.value = this.getAttribute('data-initial-value');
+                    }
+                });
+            });
+        });
+    </script>
+
+   
+
+}

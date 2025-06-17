@@ -1,0 +1,59 @@
+﻿@model Poultry_management_System.Models.RegisterViewModel
+@{
+    ViewData["Title"] = "Register – Leburu Poultry Farm";
+     Layout = "_Layout";
+}
+
+<div class="container d-flex mt-4 justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card shadow-sm" style="max-width: 400px; width: 100%;">
+        <div class="card-body p-4">
+            <!-- Logo -->
+            <div class="text-center mb-4">
+                <img src="~/img/Logo.png" alt="Leburu Poultry Farm" style="height: 50px;">
+            </div>
+
+            <!-- Title -->
+            <h4 class="card-title text-center mb-4">Create Your Account</h4>
+
+            <!-- Registration Form -->
+            <form asp-action="Register" method="post" novalidate>
+                <div class="mb-3">
+                    <label asp-for="FullName" class="form-label">Full Name</label>
+                    <input asp-for="FullName" class="form-control" placeholder="Enter your full name" />
+                    <span asp-validation-for="FullName" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label">Email address</label>
+                    <input asp-for="Email" class="form-control" placeholder="you@example.com" />
+                    <span asp-validation-for="Email" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label">Password</label>
+                    <input asp-for="Password" type="password" class="form-control" placeholder="••••••••" />
+                    <span asp-validation-for="Password" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="ConfirmPassword" class="form-label">Confirm Password</label>
+                    <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="••••••••" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
+                </div>
+
+                <button type="submit" class="btn btn-warning btn-lg w-100 mb-3">Register</button>
+            </form>
+
+            <div class="text-center">
+                <p class="mb-0 small">
+                    Already have an account?
+                    <a asp-action="LoginPage">Sign In here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts { 
+    @await Html.PartialAsync("_ValidationScriptsPartial") 
+}

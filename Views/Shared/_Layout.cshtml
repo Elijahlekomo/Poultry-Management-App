@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title - Leburu Poultry Farm</title>
+    <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css?v=1.0.0" />
+    <link rel="stylesheet" href="~/Poultry_management_System.styles.css?v=1.0.0" />
+</head>
+
+<body>
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container">
+                <!-- Logo (Left) -->
+                <img src="~/img/Logo.png" width="70" height="70" />
+                @Html.ActionLink("Leburu Poultry Farm", "Index", "Home", null, new { @class = "navbar-brand active" })
+
+                <!-- Toggler for mobile -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navbar contents -->
+                <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                    <!-- Centered Menu -->
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#about">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#products">Our Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#contact">Contact Us</a>
+                        </li>
+                    </ul>
+
+                    <!-- Right-side Buttons -->
+                    <div class="d-flex">
+                        @Html.ActionLink("Login", "LoginPage", "Accounts", null, new { @class = "btn btn-link me-2 btn-outline-light text-decoration-none" })
+                        @Html.ActionLink("Register", "RegisterPage", "Accounts", null, new { @class = "btn btn-warning" })
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div>
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - Leburu Poultry Farm All rights reserved. -
+            @Html.ActionLink("Privacy", "Privacy", "Home")
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js?v=1.0.0"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

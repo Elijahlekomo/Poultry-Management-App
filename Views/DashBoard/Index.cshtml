@@ -1,0 +1,61 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model IPagedList<Poultry_management_System.Data.Entities.Expense>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section class="py-4">
+    <div class="container">
+        <a class="btn btn-primary mb-3" asp-action="Create">New Capture</a>
+        <h4 class="mb-2">Recent Weekly Captures</h4>
+
+        <div class="table-responsive mt-3">
+            <table class="table table-bordered table-hover align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Date</th>
+                        <th>Total Feeds</th>
+                        <th>Electricity(Total Units)</th>
+                        <th>Death Report</th>
+                        <th>Water</th>
+                        <th>Transport</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.DateCaptured.ToShortDateString()</td>
+                            <td>@item.TotalFeeds</td>
+                            <td>@item.ElectricityHouse1</td>
+                            <td>@item.ChickensDied</td>
+                            <td>@item.WaterCost</td>
+                            <td>R @item.TownTransport</td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning me-1">Edit</a>
+                                <form asp-action="Delete" asp-route-id="@item.Id" method="post" style="display:inline;">
+                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-center">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

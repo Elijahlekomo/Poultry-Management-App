@@ -1,0 +1,56 @@
+﻿@model List<Poultry_management_System.Data.Entities.DailyCapture>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section class="py-4">
+    <div class="container">
+<a class="btn btn-primary mb-3" asp-action="Create">New Capture</a>
+<h4 class="mb-2">Recent Captures</h4>
+
+        <div class="table-responsive mt-3">
+            <table class="table table-bordered table-hover align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Date</th>
+                        <th>Total Trays</th>
+                        <th>Sold Trays</th>
+                        <th>Leftover Eggs</th>
+                        <th>Damaged Eggs</th>
+                        <th>Sales Amount</th>
+                        <th>Total Amount</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.DateCaptured.ToShortDateString()</td>
+                            <td>@item.TotalTrays</td>
+                            <td>@item.SoldTrays</td>
+                            <td>@item.LeftoverEggs</td>
+                            <td>@item.DamagedEggs</td>
+                            <td>R @item.Amount</td>
+                            <td>R @item.TotalAmount</td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Edit</a>
+                                <form asp-action="Delete" asp-route-id="@item.Id" method="post" style="display:inline;">
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+</div>
+</div>
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
