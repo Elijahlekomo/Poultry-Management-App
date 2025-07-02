@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Poultry management System")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+65c9fe9800345faa1d84c75689a48114d35b1730")]
 [assembly: System.Reflection.AssemblyProductAttribute("Poultry management System")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Poultry management System")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
