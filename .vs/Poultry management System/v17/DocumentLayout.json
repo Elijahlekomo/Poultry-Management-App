@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Elijah\\Projects\\Poultry Management App\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6461B00A-3304-4300-8E7A-858F01DC89A3}|Poultry management System.csproj|c:\\users\\elijah\\projects\\poultry management app\\views\\captureentry\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6461B00A-3304-4300-8E7A-858F01DC89A3}|Poultry management System.csproj|solutionrelative:views\\captureentry\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6461B00A-3304-4300-8E7A-858F01DC89A3}|Poultry management System.csproj|c:\\users\\elijah\\projects\\poultry management app\\views\\expense\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{6461B00A-3304-4300-8E7A-858F01DC89A3}|Poultry management System.csproj|solutionrelative:views\\expense\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6461B00A-3304-4300-8E7A-858F01DC89A3}|Poultry management System.csproj|c:\\users\\elijah\\projects\\poultry management app\\views\\captureentry\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{6461B00A-3304-4300-8E7A-858F01DC89A3}|Poultry management System.csproj|solutionrelative:views\\captureentry\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{6461B00A-3304-4300-8E7A-858F01DC89A3}|Poultry management System.csproj|c:\\users\\elijah\\projects\\poultry management app\\controllers\\expensescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6461B00A-3304-4300-8E7A-858F01DC89A3}|Poultry management System.csproj|solutionrelative:controllers\\expensescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6461B00A-3304-4300-8E7A-858F01DC89A3}|Poultry management System.csproj|c:\\users\\elijah\\projects\\poultry management app\\views\\captureentry\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -67,6 +71,18 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "ExpensesController.cs",
+              "DocumentMoniker": "C:\\Users\\Elijah\\Projects\\Poultry Management App\\Controllers\\ExpensesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ExpensesController.cs",
+              "ToolTip": "C:\\Users\\Elijah\\Projects\\Poultry Management App\\Controllers\\ExpensesController.cs",
+              "RelativeToolTip": "Controllers\\ExpensesController.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-02T22:17:49.316Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\Elijah\\Projects\\Poultry Management App\\Views\\CaptureEntry\\Edit.cshtml",
               "RelativeDocumentMoniker": "Views\\CaptureEntry\\Edit.cshtml",
@@ -74,34 +90,32 @@
               "RelativeToolTip": "Views\\CaptureEntry\\Edit.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-02T22:10:04.113Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-02T22:10:04.113Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Elijah\\Projects\\Poultry Management App\\Views\\CaptureEntry\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\CaptureEntry\\Index.cshtml",
               "ToolTip": "C:\\Users\\Elijah\\Projects\\Poultry Management App\\Views\\CaptureEntry\\Index.cshtml",
               "RelativeToolTip": "Views\\CaptureEntry\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-06-30T12:00:55.606Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Elijah\\Projects\\Poultry Management App\\Views\\Expense\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Expense\\Index.cshtml",
               "ToolTip": "C:\\Users\\Elijah\\Projects\\Poultry Management App\\Views\\Expense\\Index.cshtml",
               "RelativeToolTip": "Views\\Expense\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-30T11:58:58.94Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-30T11:58:58.94Z"
             }
           ]
         }
