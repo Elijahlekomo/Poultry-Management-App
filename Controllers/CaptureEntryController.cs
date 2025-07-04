@@ -33,7 +33,7 @@ namespace Poultry_management_System.Controllers
 
             var viewModel = new CaptureFormViewModel()
             {
-                TrayPrice = settings?.TraysPrice ?? 10,
+                TrayPrice = settings?.TraysPrice ?? 0,
                 TwelvesPrice = settings?.TwelvesPrice ?? 0,
                 SixesPrice = settings?.SixesPrice ?? 0
             };
@@ -70,9 +70,9 @@ namespace Poultry_management_System.Controllers
                     SoldSixes = model.SoldSixes,
                     SoldTrays = model.SoldTrays,
                     UnsoldTrays = model.UnsoldTrays,
-                    TraysPrice = model.TrayPrice,
-                    SixesPrice = model.SixesPrice,
-                    TwelvesPrice = model.TwelvesPrice,
+                    //TraysPrice = model.TrayPrice,
+                    //SixesPrice = model.SixesPrice,
+                    //TwelvesPrice = model.TwelvesPrice,
                     Amount = model.Amount,
                     TotalAmount = model.TotalAmount,
                     DateCaptured = model.DateCaptured,

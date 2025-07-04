@@ -1,11 +1,17 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Poultry_management_System.Controllers;
 using Poultry_management_System.Data.Entities;
 
 namespace Poultry_management_System.Data
 {
-    public class DataContext(DbContextOptions<DataContext> options) : DbContext(options)
+    public class DataContext : IdentityDbContext
     {
+        public DataContext(DbContextOptions<DataContext> options)
+            : base(options)
+        {
+        }
+
         public DbSet<Expense> Expense { get; set; }
         public DbSet<DailyCapture> DailyCapture { get; set; }
         public DbSet<DefaultPrices> CaptureSettings { get; set; }

@@ -1,8 +1,10 @@
 using System.Globalization;
 using Microsoft.EntityFrameworkCore;
 using Poultry_management_System.Data;
+using Microsoft.AspNetCore.Identity;
 
-namespace Poultry_management_System {
+namespace Poultry_management_System
+{
 
     public class Program
     {
@@ -26,7 +28,10 @@ namespace Poultry_management_System {
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<DataContext>(options =>
-            options.UseSqlServer(builder.Configuration.GetConnectionString("LeburuPoultryFarm")));
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<DataContext>();
 
             var app = builder.Build();
 
@@ -42,6 +47,7 @@ namespace Poultry_management_System {
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseAuthentication();
 
             app.MapStaticAssets();
 
