@@ -7,10 +7,11 @@ using X.PagedList;
 using Poultry_management_System.Models;
 using X.PagedList.Extensions;
 using X.PagedList.EF;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Poultry_management_System.Controllers
 {
-    //[Area("Capture")]
+    [Authorize]
     public class ExpenseController : Controller
     {
         private readonly DataContext _context;

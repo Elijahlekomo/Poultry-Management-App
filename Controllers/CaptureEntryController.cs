@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NuGet.Configuration;
 using Poultry_management_System.Data;
@@ -7,6 +8,7 @@ using Poultry_management_System.Models;
 
 namespace Poultry_management_System.Controllers
 {
+    [Authorize]
     public class CaptureEntryController : Controller
     {
         private readonly DataContext _context;
