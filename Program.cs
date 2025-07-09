@@ -1,7 +1,8 @@
-using System.Globalization;
-using Microsoft.EntityFrameworkCore;
-using Poultry_management_System.Data;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
+using Poultry_management_System.Data;
+using System.Globalization;
 
 namespace Poultry_management_System
 {
@@ -30,8 +31,10 @@ namespace Poultry_management_System
             builder.Services.AddDbContext<DataContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<DataContext>();
+
+            builder.Services.ConfigureApplicationCookie(options => options.LoginPath = "/ Accounts / LoginPage");
 
             var app = builder.Build();
 
@@ -46,14 +49,11 @@ namespace Poultry_management_System
             app.UseHttpsRedirection();
             app.UseRouting();
 
-            app.UseAuthorization();
             app.UseAuthentication();
+            app.UseAuthorization();
+
 
             app.MapStaticAssets();
-
-            /*app.MapControllerRoute(
-                name: "area",
-                pattern: "{area:exists}/{controller}/{action}/{id?}");*/
 
 
             app.MapControllerRoute(

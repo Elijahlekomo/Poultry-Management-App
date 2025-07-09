@@ -15,29 +15,39 @@
             <!-- Title -->
             <h4 class="card-title text-center mb-4">Create Your Account</h4>
 
+            <!-- Error messages -->
+            @if (!ViewData.ModelState.IsValid && ViewData.ModelState.Values.SelectMany(v => v.Errors).Any())
+            {
+                <div class="alert alert-danger small">
+                    @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                    {
+                        <div>@error.ErrorMessage</div>
+                    }
+                </div>
+            }
             <!-- Registration Form -->
             <form asp-action="RegisterPage" method="post" novalidate>
                 <div class="mb-3">
                     <label asp-for="FullName" class="form-label">Full Name</label>
-                    <input asp-for="FullName" class="form-control" placeholder="Enter your full name" />
+                    <input asp-for="FullName" class="form-control" placeholder="" />
                     <span asp-validation-for="FullName" class="text-danger small"></span>
                 </div>
 
                 <div class="mb-3">
                     <label asp-for="Email" class="form-label">Email address</label>
-                    <input asp-for="Email" class="form-control" placeholder="you@example.com" />
+                    <input asp-for="Email" class="form-control" placeholder="" />
                     <span asp-validation-for="Email" class="text-danger small"></span>
                 </div>
 
                 <div class="mb-3">
                     <label asp-for="Password" class="form-label">Password</label>
-                    <input asp-for="Password" type="password" class="form-control" placeholder="••••••••" />
+                    <input asp-for="Password" type="password" class="form-control" placeholder="" />
                     <span asp-validation-for="Password" class="text-danger small"></span>
                 </div>
 
                 <div class="mb-4">
                     <label asp-for="ConfirmPassword" class="form-label">Confirm Password</label>
-                    <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="••••••••" />
+                    <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="" />
                     <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
                 </div>
 

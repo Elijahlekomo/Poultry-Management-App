@@ -26,13 +26,14 @@ namespace Poultry_management_System.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = model.FullName, Email = model.Email };
+                var user = new IdentityUser { UserName = model.Email, Email = model.Email };
+                Console.WriteLine(user);
                 var result = await _userManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)
                 {
-                    await _signInManager.SignInAsync(user, isPersistent: false); // Log the user in
-                    return RedirectToAction("Index", "Home"); // Redirect to a protected page
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    return RedirectToAction("Index", "Home");
                 }
 
                 foreach (var error in result.Errors)
@@ -42,22 +43,36 @@ namespace Poultry_management_System.Controllers
             }
             return View(model);
         }
-        public IActionResult LoginPage()
+        public IActionResult LoginPage(string returnUrl = null)
         {
+            ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> LoginPage(LoginViewModel model, string returnUrl = "/CaptureEntry/Index")
+        public async Task<IActionResult> LoginPage(LoginViewModel model, string? returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
+                Console.WriteLine(result);
 
                 if (result.Succeeded)
                 {
-                    return RedirectToLocal(returnUrl); // Helper method to redirect to returnUrl or home
+
+                    if (Url.IsLocalUrl(returnUrl))
+                    {
+                        return Redirect(returnUrl);
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "CaptureEntry");
+                    }
+                }
+                if (result.IsLockedOut)
+                {
+                    return RedirectToPage("./Lockout");
                 }
                 else
                 {
@@ -68,18 +83,65 @@ namespace Poultry_management_System.Controllers
             return View(model);
         }
 
-        // Helper method for redirection
-        private IActionResult RedirectToLocal(string returnUrl)
-        {
-            if (Url.IsLocalUrl(returnUrl))
-            {
-                return Redirect(returnUrl);
-            }
-            else
-            {
-                return RedirectToAction("Index", "Home");
-            }
-        }
+
+
+        //[HttpPost]
+        //public async Task<IActionResult> LoginPage(LoginViewModel model, string? returnUrl = null)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var user = await _userManager.FindByEmailAsync(model.Email);
+        //        if (user != null)
+        //        {
+        //            var result = await _signInManager.PasswordSignInAsync(user.UserName, model.Password, model.RememberMe, lockoutOnFailure: false);
+
+        //            if (result.Succeeded)
+        //            {
+        //                // IMPORTANT: Prevent open redirect attack
+        //                if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
+        //                {
+        //                    return Redirect(returnUrl);
+        //                }
+        //                else
+        //                {
+        //                    return RedirectToAction("Index", "CaptureEntry");
+        //                }
+        //            }
+        //        }
+
+        //        ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+        //    }
+
+        //    return View(model);
+        //}
+
+        //[HttpPost]
+        //public async Task<IActionResult> LoginPage(LoginViewModel model, string? returnUrl = null)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var user = await _userManager.FindByEmailAsync(model.Email);
+        //        if (user != null)
+        //        {
+        //            var result = await _signInManager.PasswordSignInAsync(user.UserName, model.Password, model.RememberMe, lockoutOnFailure: false);
+        //            if (result.Succeeded)
+        //                return Redirect(returnUrl ?? "/CaptureEntry");
+        //        }
+        //        ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+        //        //var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
+
+        //        //if (result.Succeeded)
+        //        //{
+        //        //    return RedirectToAction("Index", "CaptureEntry");
+        //        //}
+        //        //else
+        //        //{
+        //        //    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+        //        //    return View(model);
+        //        //}
+        //    }
+        //    return View(model);
+        //}
 
     }
 }
