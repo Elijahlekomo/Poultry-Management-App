@@ -28,7 +28,7 @@ __Login Page__
   <img width="960" alt="Webportfolioimg" src="https://github.com/Elijahlekomo/Poultry-Management-App/blob/main/wwwroot/img/CapturePage.png">  
    __Expense Page__    
 
-  <img width="960" alt="Webportfolioimg" src="https://github.com/Elijahlekomo/Poultry-Management-App/blob/main/wwwroot/img/CapturePage.png">  
+  <img width="960" alt="Webportfolioimg" src="https://github.com/Elijahlekomo/Poultry-Management-App/blob/main/wwwroot/img/ExpensePage.png">  
 
 
 
