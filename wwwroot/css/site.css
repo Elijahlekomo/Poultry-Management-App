@@ -68,17 +68,17 @@ html {
 
 .btn-warning:hover {
     background-color: hsl(45 22% 93%) !important;
-    color: orange !important; 
+    color: orange !important;
     border: none;
 }
 
-.btn-link{
+.btn-link {
     color: black !important;
 }
 
-.btn-link:hover {
-    color: orange !important;
-}
+    .btn-link:hover {
+        color: orange !important;
+    }
 
 .text-orange {
     color: #fd7e14;
@@ -134,8 +134,8 @@ body {
 
 .nav-link.active {
     color: #f0ad4e !important; /* Highlight color (orange/gold) */
-    font-weight: bold;
-    border-bottom: 2px solid #f0ad4e;
+    font-weight: bold !important;
+    border-bottom: 1px solid #f0ad4e !important;
 }
 
 #about {
@@ -148,9 +148,9 @@ body {
     left: 20px;
     z-index: 1000;
     display: inline-block;
-/*    background-color: #25d366;*/
-/*    border-radius: 50%;*/
-/*    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);*/
+    /*    background-color: #25d366;*/
+    /*    border-radius: 50%;*/
+    /*    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);*/
     padding: 12px;
     transition: transform 0.2s ease-in-out;
 }

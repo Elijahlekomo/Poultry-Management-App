@@ -83,6 +83,13 @@ namespace Poultry_management_System.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> LogoutPage()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("LoginPage", "Accounts");
+        }
 
 
         //[HttpPost]

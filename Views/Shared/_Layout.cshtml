@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿@* <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -70,5 +70,137 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js?v=1.0.0"></script>
     @RenderSection("Scripts", required: false)
+</body>
+</html>
+ *@
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Poultry Paradise </title>
+    <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css?v=1.0.0" />
+    <link rel="stylesheet" href="~/Poultry_management_System.styles.css?v=1.0.0" />
+
+    <style>
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="bg-light">   
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container">
+                <!-- Logo -->
+                <img src="~/img/Logo.png" width="70" height="70" />
+                @Html.ActionLink("Poultry Paradise", "Index", "Home", null, new { @class = "navbar-brand active" })
+
+                <!-- Toggler -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                        aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-between" id="navbarContent">
+                    <!-- Center Nav -->
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#about">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="CaptureEntry" asp-action="Index">Production Track</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Expense" asp-action="Index">Daily Expenses</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#about">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#products">Our Products</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#services">Services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#contact">Contact Us</a>
+                            </li>
+                        }
+                    </ul>
+
+                    <!-- Right Buttons -->
+                    <div class="d-flex align-items-center">
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button"
+                                   data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="~/img/user.png" class="rounded-circle me-2" width="25" height="25" alt="Avatar" />
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end px-2" aria-labelledby="userDropdown">
+                                    <li>
+                                        <span>@User.Identity.Name</span>
+                                    </li>
+                                    <li>
+                                        <form asp-controller="Accounts" asp-action="LogoutPage" method="post" class="dropdown-item m-0 p-0">
+                                            <button type="submit" class="btn btn-link link-underline link-underline-opacity-0 text-start text-dark w-100">
+                                                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                                Logout
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Login", "LoginPage", "Accounts", null, new { @class = "btn btn-link me-2 text-decoration-none" })
+                            @Html.ActionLink("Register", "RegisterPage", "Accounts", null, new { @class = "btn btn-warning" })
+                        }
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <div>
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - Poultry Paradise Farm All rights reserved. -
+            @Html.ActionLink("Privacy", "Privacy", "Home")
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js?v=1.0.0"></script>
+    <script src="https://kit.fontawesome.com/789f811ff5.js" crossorigin="anonymous"></script>
+
+    @RenderSection("Scripts", required: false)
+
 </body>
 </html>
