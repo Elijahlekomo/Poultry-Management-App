@@ -1,61 +1,58 @@
-﻿@using X.PagedList
-@using X.PagedList.Mvc.Core
-@model IPagedList<Poultry_management_System.Data.Entities.Expense>
-
+﻿@model Poultry_management_System.Models.DashboardViewModel
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="container mt-5">
+    <h5><strong>Date:</strong> @Model.Date.ToString("yyyy/MM/dd")</h5>
 
-<section class="py-4">
-    <div class="container">
-        <a class="btn btn-primary mb-3" asp-action="Create">New Capture</a>
-        <h4 class="mb-2">Recent Weekly Captures</h4>
-
-        <div class="table-responsive mt-3">
-            <table class="table table-bordered table-hover align-middle">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Date</th>
-                        <th>Total Feeds</th>
-                        <th>Electricity(Total Units)</th>
-                        <th>Death Report</th>
-                        <th>Water</th>
-                        <th>Transport</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>@item.DateCaptured.ToShortDateString()</td>
-                            <td>@item.TotalFeeds</td>
-                            <td>@item.ElectricityHouse1</td>
-                            <td>@item.ChickensDied</td>
-                            <td>@item.WaterCost</td>
-                            <td>R @item.TownTransport</td>
-                            <td>
-                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning me-1">Edit</a>
-                                <form asp-action="Delete" asp-route-id="@item.Id" method="post" style="display:inline;">
-                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                                </form>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-            <div class="d-flex justify-content-center">
-                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
-            </div>
-
+    <h4 class="mt-4">Financial overview</h4>
+    <div class="row text-center">
+        <div class="col card p-3 m-2 shadow-sm">
+            <strong>Total Monthly Profit</strong><br />
+            <small>Income - Expense</small><br />
+            <h4>R @Model.TotalMonthlyProfit.ToString("0.00")</h4>
         </div>
-
+        <div class="col card p-3 m-2 shadow-sm">
+            <strong>Total Monthly Income</strong><br />
+            <h4>R @Model.TotalMonthlyIncome.ToString("0.00")</h4>
+        </div>
+        <div class="col card p-3 m-2 shadow-sm">
+            <strong>Total Monthly Expense</strong><br />
+            <h4>R @Model.TotalMonthlyExpense.ToString("0.00")</h4>
+        </div>
     </div>
-</section>
 
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-}
+    <h4 class="mt-4">Financial overview daily</h4>
+    <div class="row text-center">
+        <div class="col card p-3 m-2 shadow-sm">
+            <strong>Total Daily Profit</strong><br />
+            <small>Income - Expense</small><br />
+            <h4>R @Model.TotalDailyProfit.ToString("0.00")</h4>
+        </div>
+        <div class="col card p-3 m-2 shadow-sm">
+            <strong>Total Daily Income</strong><br />
+            <h4>R @Model.TotalDailyIncome.ToString("0.00")</h4>
+        </div>
+        <div class="col card p-3 m-2 shadow-sm">
+            <strong>Total Daily Expense</strong><br />
+            <h4>R @Model.TotalDailyExpense.ToString("0.00")</h4>
+        </div>
+    </div>
 
+    <h4 class="mt-4">Daily Operations Summary</h4>
+    <div class="row text-center">
+        <div class="col card p-3 m-2 shadow-sm"><strong>Total Trays</strong><h3>@Model.TotalTrays</h3></div>
+        <div class="col card p-3 m-2 shadow-sm"><strong>Sold Trays</strong><h3>@Model.SoldTrays</h3></div>
+        <div class="col card p-3 m-2 shadow-sm"><strong>Leftover Eggs</strong><h3>@Model.LeftoverEggs</h3></div>
+        <div class="col card p-3 m-2 shadow-sm"><strong>Damaged Eggs</strong><h3>@Model.DamagedEggs</h3></div>
+        <div class="col card p-3 m-2 shadow-sm"><strong>Death Report</strong><h3>@Model.DeathReport</h3></div>
+        <div class="col card p-3 m-2 shadow-sm"><strong>Total Feed Used</strong><h3>@Model.TotalFeedUsed</h3></div>
+    </div>
+
+    <h4 class="mt-4">Stock</h4>
+    <div class="row text-center">
+        <div class="col card p-3 m-2 shadow-sm"><strong>Total Chickens</strong><h3>@Model.TotalChickens</h3></div>
+        <div class="col card p-3 m-2 shadow-sm"><strong>Total Feed</strong><h3>@Model.TotalFeedStock</h3></div>
+    </div>
+</div>

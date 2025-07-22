@@ -67,7 +67,7 @@ namespace Poultry_management_System.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index", "CaptureEntry");
+                        return RedirectToAction("Index", "Dashboard");
                     }
                 }
                 if (result.IsLockedOut)
