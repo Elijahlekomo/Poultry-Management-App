@@ -25,27 +25,27 @@ namespace Poultry_management_System.Controllers
                 Date = today,
 
                 // Monthly Overview
-                //TotalMonthlyIncome = _context.Captures.Where(c => c.Date >= monthStart).Sum(c => c.SalesAmount),
-                //TotalMonthlyExpense = _context.Captures.Where(c => c.Date >= monthStart).Sum(c => c.TotalExpense),
-                //// Profit = Income - Expense
-                //TotalMonthlyProfit = _context.Captures.Where(c => c.Date >= monthStart).Sum(c => c.SalesAmount - c.TotalExpense),
+                TotalMonthlyIncome = _context.DailyCapture.Where(c => c.DateCaptured >= monthStart).Sum(c => c.TotalAmount),
+                TotalMonthlyExpense = _context.Expense.Where(c => c.DateCaptured >= monthStart).Sum(c => c.TownLunch + c.TownTransport),
+                // Profit = Income - Expense
+                TotalMonthlyProfit = _context.DailyCapture.Where(c => c.DateCaptured >= monthStart).Sum(c => c.TotalAmount) - _context.Expense.Where(c => c.DateCaptured >= monthStart).Sum(c => c.TownLunch + c.TownTransport),
 
                 // Daily Overview
-                //TotalDailyIncome = _context.Captures.Where(c => c.Date == today).Sum(c => c.SalesAmount),
-                //TotalDailyExpense = _context.Captures.Where(c => c.Date == today).Sum(c => c.TotalExpense),
-                //TotalDailyProfit = _context.Captures.Where(c => c.Date == today).Sum(c => c.SalesAmount - c.TotalExpense),
+                TotalDailyIncome = _context.DailyCapture.Where(c => c.DateCaptured == today).Sum(c => c.TotalAmount),
+                TotalDailyExpense = _context.Expense.Where(c => c.DateCaptured == today).Sum(c => c.TownLunch + c.TownTransport),
+                TotalDailyProfit = _context.DailyCapture.Where(c => c.DateCaptured == today).Sum(c => c.TotalAmount) - _context.Expense.Where(c => c.DateCaptured == today).Sum(c => c.TownLunch + c.TownTransport),
 
                 // Daily Operations Summary
-                //TotalTrays = _context.Captures.Where(c => c.Date == today).Sum(c => c.Trays),
-                //SoldTrays = _context.Captures.Where(c => c.Date == today).Sum(c => c.Sold),
-                //LeftoverEggs = _context.Captures.Where(c => c.Date == today).Sum(c => c.UnsoldEggs),
-                //DamagedEggs = _context.Captures.Where(c => c.Date == today).Sum(c => c.Damaged),
-                //DeathReport = _context.Captures.Where(c => c.Date == today).Sum(c => c.DeathReport),
-                //TotalFeedUsed = _context.Captures.Where(c => c.Date == today).Sum(c => c.FeedBags),
+                TotalTrays = _context.DailyCapture.Where(c => c.DateCaptured == today).Sum(c => c.SoldTrays + c.UnsoldTrays),
+                SoldTrays = _context.DailyCapture.Where(c => c.DateCaptured == today).Sum(c => c.SoldTrays),
+                LeftoverEggs = _context.DailyCapture.Where(c => c.DateCaptured == today).Sum(c => c.UnsoldEggs),
+                DamagedEggs = _context.DailyCapture.Where(c => c.DateCaptured == today).Sum(c => c.DamagedEggs),
+                DeathReport = _context.Expense.Where(c => c.DateCaptured == today).Sum(c => c.StarterDied + c.LayersDied),
+                TotalFeedUsed = _context.Expense.Where(c => c.DateCaptured == today).Sum(c => c.GrowerFeed + c.LayerFeed + c.StarterFeed),
 
                 // Stock
-                //TotalChickens = _context.Captures.OrderByDescending(c => c.Date).FirstOrDefault()?.TotalChickens ?? 0,
-                //TotalFeedStock = _context.Captures.OrderByDescending(c => c.Date).FirstOrDefault()?.TotalFeedStock ?? 0
+                TotalChickens = _context.Expense.OrderByDescending(c => c.DateCaptured).FirstOrDefault()?.TotalChickens ?? 0,
+                TotalFeedStock = _context.Expense.OrderByDescending(c => c.DateCaptured).FirstOrDefault()?.TotalFeeds ?? 0
             };
 
             return View(model);
