@@ -189,7 +189,7 @@ textarea.form-control {
 
 @media (max-width: 576px) {
     .hero-section {
-        min-height: 60vh; /* smaller height for mobile */
+        min-height: 65vh; /* smaller height for mobile */
         padding: 40px 15px;
     }
 
@@ -202,3 +202,5 @@ textarea.form-control {
             padding: 10px 16px;
         }
 }
+
+
