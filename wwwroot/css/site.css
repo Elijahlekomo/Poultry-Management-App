@@ -102,7 +102,8 @@ body {
 
 .hero-section {
     width: 100%;
-    height: 100vh; /* Full viewport height */
+    /*height: 100vh;*/ /* Full viewport height */
+    min-height: 100vh; /* default full screen height */
     background-image: url('/img/LeburuImg7.jpeg'); /* Change this to your actual path */
     background-size: cover;
     background-position: center;
@@ -131,6 +132,14 @@ body {
     position: relative;
     z-index: 2;
 }
+
+/*======================================================================*/
+/*.hero-section {
+    
+    background: url('/img/your-hero-image.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 60px 15px;
+}*/
 
 .nav-link.active {
     color: #f0ad4e !important; /* Highlight color (orange/gold) */
@@ -166,4 +175,30 @@ body {
 
 textarea.form-control {
     resize: none;
+}
+
+
+/*==================== Reponsive Design ==================== */
+@media (max-width: 768px) {
+    .about-text {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section {
+        min-height: 60vh; /* smaller height for mobile */
+        padding: 40px 15px;
+    }
+
+        .hero-section .hero-content h1 {
+            font-size: 1.5rem;
+        }
+
+        .hero-section .btn {
+            font-size: 0.9rem;
+            padding: 10px 16px;
+        }
 }
