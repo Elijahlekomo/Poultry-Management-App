@@ -87,9 +87,7 @@ html {
 
 
 /*=======================================================*/
-body {
-    margin-bottom: 60px;
-}
+
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
     color: var(--bs-secondary-color);
@@ -178,6 +176,66 @@ textarea.form-control {
 }
 
 
+body {
+    background-color: #F5F7FA;
+    color: #1B1F23;
+}
+
+.card {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0,21,41,0.05);
+    box-shadow: 0 2px 6px rgba(0,21,41,0.05);
+}
+
+    .card strong {
+        color: #117A65; /* secondary accent for labels */
+    }
+
+    .card h3 {
+        color: #F0AD4E; /* primary accent for values */
+    }
+
+h4, h2 {
+    color: #117A65; /* use teal for section headings */
+}
+
+.navbar .nav-link.active {
+    color: #F0AD4E !important;
+    border-bottom-color: #F0AD4E !important;
+}
+
+.btn-warning {
+    background-color: #F0AD4E;
+    border-color: #F0AD4E;
+}
+
+.btn-secondary {
+    background-color: #117A65;
+    border-color: #117A65;
+    color: #FFFFFF;
+}
+
+
+.site-footer {
+    background-color: #fd7e14;
+}
+
+    .site-footer .footer-copy {
+        font-size: 0.9rem;
+        color: #F5F7FA;
+    }
+
+    .site-footer .social-icon {
+        font-size: 1.5rem;
+        color: #F0AD4E;
+        transition: color 0.2s ease;
+    }
+
+        .site-footer .social-icon:hover {
+            color: #FFFFFF;
+        }
+
+
 /*==================== Reponsive Design ==================== */
 @media (max-width: 768px) {
     .about-text {
@@ -203,4 +261,50 @@ textarea.form-control {
         }
 }
 
+
+.daily-summary{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 0 auto;
+}
+
+    /* default: full-width on very small screens */
+    .daily-summary .card {
+        flex: 0 1 100%;
+    }
+/* ≥3765x: two cards per row */
+@media (min-width: 375px) {
+    .daily-summary .card {
+        flex: 0 1 calc(48% - 1rem);
+    }
+}
+
+@media (min-width: 576px) {
+    .daily-summary .card {
+        flex: 0 1 calc(30.333% - 1rem);
+    }
+}
+
+/* ≥768px: 4 cards per row */
+@media (min-width: 768px) {
+    .daily-summary .card {
+        flex: 0 1 calc(21.333% - 1rem);
+    }
+}
+
+/* ≥992px: six cards per row */
+@media (min-width: 992px) {
+    .daily-summary .card {
+        flex: 0 1 calc(16.666% - 2rem);
+    }
+}
+
+/* ≥3765x: two cards per row */
+@media (max-width: 576px) {
+    .row .card {
+        flex: 0 1 calc(48% - 1rem);
+    }
+}
 

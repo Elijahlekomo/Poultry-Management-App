@@ -6,20 +6,43 @@
 <div class="container mt-5">
     <h5><strong>Date:</strong> @Model.Date.ToString("yyyy/MM/dd")</h5>
 
+    @* <h4 class="mt-4">Daily Operations Summary</h4>
+    <div class="row text-center">
+        <div class="col col-sm-6 col-lg-2 card p-2 m-1 shadow-sm"><strong>Total Trays</strong><h3>@Model.TotalTrays</h3></div>
+        <div class="col col-sm-6 col-lg-2 card p-2 m-1 shadow-sm"><strong>Sold Trays</strong><h3>@Model.SoldTrays</h3></div>
+        <div class="col col-sm-6 col-lg-2 card p-2 m-1 shadow-sm"><strong>Leftover Eggs</strong><h3>@Model.LeftoverEggs</h3></div>
+        <div class="col col-sm-6 col-lg-2 card p-2 m-1 shadow-sm"><strong>Damaged Eggs</strong><h3>@Model.DamagedEggs</h3></div>
+        <div class="col col-sm-6 col-lg-2 card p-2 m-1 shadow-sm"><strong>Death Report</strong><h3>@Model.DeathReport</h3></div>
+        <div class="col col-sm-6 col-lg-2 card p-2 m-1 shadow-sm"><strong>Total Feed Used</strong><h3>@Model.TotalFeedUsed</h3></div>
+    </div> *@
+
+    <h4 class="mt-4">Daily Operations Summary</h4>
+    <div class="daily-summary row text-center">
+        <div class="card p-3 m-2 shadow-sm">
+            <strong>Total Trays</strong>
+            <h3>@Model.TotalTrays</h3>
+        </div>
+        <div class="card p-3 m-2 shadow-sm"><strong>Sold Trays</strong><h3>@Model.SoldTrays</h3></div>
+        <div class="card p-3 m-2 shadow-sm"><strong>Leftover Eggs</strong><h3>@Model.LeftoverEggs</h3></div>
+        <div class="card p-3 m-2 shadow-sm"><strong>Damaged Eggs</strong><h3>@Model.DamagedEggs</h3></div>
+        <div class="card p-3 m-2 shadow-sm"><strong>Death Report</strong><h3>@Model.DeathReport</h3></div>
+        <div class="card p-3 m-2 shadow-sm"><strong>Total Feed Used</strong><h3>@Model.TotalFeedUsed</h3></div>
+    </div>
+
     <h4 class="mt-4">Financial overview</h4>
     <div class="row text-center">
         <div class="col card p-3 m-2 shadow-sm">
             <strong>Total Monthly Profit</strong><br />
             <small>Income - Expense</small><br />
-            <h4>R @Model.TotalMonthlyProfit.ToString("0.00")</h4>
+            <h3>R @Model.TotalMonthlyProfit.ToString("0.00")</h3>
         </div>
         <div class="col card p-3 m-2 shadow-sm">
             <strong>Total Monthly Income</strong><br />
-            <h4>R @Model.TotalMonthlyIncome.ToString("0.00")</h4>
+            <h3>R @Model.TotalMonthlyIncome.ToString("0.00")</h3>
         </div>
         <div class="col card p-3 m-2 shadow-sm">
             <strong>Total Monthly Expense</strong><br />
-            <h4>R @Model.TotalMonthlyExpense.ToString("0.00")</h4>
+            <h3>R @Model.TotalMonthlyExpense.ToString("0.00")</h3>
         </div>
     </div>
 
@@ -28,27 +51,17 @@
         <div class="col card p-3 m-2 shadow-sm">
             <strong>Total Daily Profit</strong><br />
             <small>Income - Expense</small><br />
-            <h4>R @Model.TotalDailyProfit.ToString("0.00")</h4>
+            <h3>R @Model.TotalDailyProfit.ToString("0.00")</h3>
         </div>
         <div class="col card p-3 m-2 shadow-sm">
             <strong>Total Daily Income</strong><br />
-            <h4>R @Model.TotalDailyIncome.ToString("0.00")</h4>
+            <h3>R @Model.TotalDailyIncome.ToString("0.00")</h3>
         </div>
         <div class="col card p-3 m-2 shadow-sm">
             <strong>Total Daily Expense</strong><br />
-            <h4>R @Model.TotalDailyExpense.ToString("0.00")</h4>
+            <h3>R @Model.TotalDailyExpense.ToString("0.00")</h3>
         </div>
-    </div>
-
-    <h4 class="mt-4">Daily Operations Summary</h4>
-    <div class="row text-center">
-        <div class="col card p-3 m-2 shadow-sm"><strong>Total Trays</strong><h3>@Model.TotalTrays</h3></div>
-        <div class="col card p-3 m-2 shadow-sm"><strong>Sold Trays</strong><h3>@Model.SoldTrays</h3></div>
-        <div class="col card p-3 m-2 shadow-sm"><strong>Leftover Eggs</strong><h3>@Model.LeftoverEggs</h3></div>
-        <div class="col card p-3 m-2 shadow-sm"><strong>Damaged Eggs</strong><h3>@Model.DamagedEggs</h3></div>
-        <div class="col card p-3 m-2 shadow-sm"><strong>Death Report</strong><h3>@Model.DeathReport</h3></div>
-        <div class="col card p-3 m-2 shadow-sm"><strong>Total Feed Used</strong><h3>@Model.TotalFeedUsed</h3></div>
-    </div>
+    </div>   
 
     <h4 class="mt-4">Stock</h4>
     <div class="row text-center">
