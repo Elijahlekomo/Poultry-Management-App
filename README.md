@@ -17,11 +17,11 @@ __Landing Page__
   
   __Register Page__    
 
-  <img width="960" alt="Webportfolioimg" src="https://github.com/Elijahlekomo/">  
+  <img width="960" alt="Register" src="https://github.com/Elijahlekomo/">  
   
 __Login Page__    
 
-  <img width="960" alt="Webportfolioimg" src="https://github.com/Elijahlekomo/">  
+  <img width="960" alt="Login" src="https://github.com/Elijahlekomo/Poultry-Management-App/blob/main/Images/LoginPage.png">  
 
   __Capture Page__    
 
